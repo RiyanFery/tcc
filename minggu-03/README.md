@@ -12,7 +12,7 @@ Software as a Service adalah layanan software yang digunakan melalui internet. S
 konsep SaaS ini akan diterapkan pada aplikasi penggajian berbasis desktop dengan menggunakan tool VFP2IIS. Prototype aplikasi penggajian yang dihasilkan, dikembangkan dengan menggunakan metode perancangan OOD (Object Oriented Development) dengan tool UML (Unified Modelling Language). Prototype aplikasi yang dihasilkan berbasis WEB dengan menganut konsep SaaS.
 
 ## KARAKTERISTIK SAAS
-Cara mudah untuk memahami cara kerja software as a service adalah dengan merumpamakannya sebagai bank. Hal ini karena bank dapat melindungi privasi masing-masing pengguna dan juga menyediakan servis yang dapat diandalkan dan aman dalam skala besar. Nasabah bank juga menggunakan sistem finansial dan teknologi tanpa harus khawatir orang lain dapat mengakses informasi pribadi tanpa ijin.
+Cara mudah untuk memahami cara kerja software as a service adalah dengan merumpamakannya sebagai bank. Hal ini karena bank dapat melindungi privasi masing-masing pengguna dan juga menyediakan servis yang dapat diandalkan dan aman dalam skala besar, Nasabah bank juga menggunakan sistem finansial dan teknologi tanpa harus khawatir orang lain dapat mengakses informasi pribadi tanpa ijin.
 
 Bank juga metafor yang tepat untuk memahami SaaS karena karakteristiknya yang sama.
 
