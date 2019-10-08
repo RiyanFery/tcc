@@ -1,6 +1,6 @@
 ## NAMA : FELIX JEFRIAN FERY F
 ## NIM  : 175410038
-## KELAS: TEKNIK
+## KELAS: TEKNIK INFORMATIKA - 9
 
 ## Business Process as a Service
 Pengertian Business Process as a Service
