@@ -13,7 +13,7 @@ Because Redis is a database, Jane wants to run it as a background service while 
 
     By default, Docker will run a command in the foreground. To run in the background, the option -d needs to be specified.
 
-![alt text](1.PNG)
+![alt text](1.png)
 
     By default, Docker will run the latest version available. If a particular version was required, it could be specified as a tag, for example, version 3.2 would be docker run -d redis:3.2.
 
@@ -27,7 +27,7 @@ Because Redis is a database, Jane wants to run it as a background service while 
     The command docker inspect <friendly-name|container-id> provides more details about a running container, such as IP address.
 
     The command docker logs <friendly-name|container-id> will display messages the container has written to standard error or standard out.
-![alt text](2.PNG)
+![alt text](2.png)
 
 ## 3 - Accessing Redis
 Jane is happy that Redis is running, but is surprised that she cannot access it. The reason is that each container is sandboxed. If a service needs to be accessible by a process not running in a container, then the port needs to be exposed via the Host.
@@ -41,7 +41,7 @@ After reading the documentation, Jane discovers that ports are bound when contai
 
 Jane finds the best way to solve her problem of running Redis in the background, with a name of redisHostPort on port 6379 is using the following command docker run -d --name redisHostPort -p 6379:6379 redis:latest
 
-![alt text](3.PNG)
+![alt text](3.png)
 
 ## Protip
 By default, the port on the host is mapped to 0.0.0.0, which means all IP addresses. You can specify a particular IP address when you define the port mapping, for example, -p 127.0.0.1:6379:6379
@@ -52,14 +52,14 @@ The problem with running processes on a fixed port is that you can only run one 
 ## Task
 After experimenting, Jane discovers that just using the option -p 6379 enables her to expose Redis but on a randomly available port. She decides to test her theory using docker run -d --name redisDynamic -p 6379 redis:latest
 
-![alt text](4.PNG)
+![alt text](4.png)
 
 While this works, she now doesn't know which port has been assigned. Thankfully, this is discovered via docker port redisDynamic 6379
 
-![alt text](5.PNG)
+![alt text](5.png)
 
 Jane also finds that listing the containers displays the port mapping information, docker ps
-![alt text](6.PNG)
+![alt text](6.png)
 
 ## 5 - Persisting Data
 After working with containers for a few days, Jane realises that the data stored keeps being removed when she deletes and re-creates a container. Jane needs the data to be persisted and reused when she recreates a container.
@@ -73,7 +73,7 @@ Any data which needs to be saved on the Docker Host, and not inside containers, 
 
 The complete command to solve the task is docker run -d --name redisMapped -v /opt/docker/data/redis:/data redis
 
-![alt text](7.PNG)
+![alt text](7.png)
 
 ## Protip
 Docker allows you to use $PWD as a placeholder for the current directory.
@@ -88,11 +88,11 @@ As well as defining whether the container runs in the background or foreground, 
 ## Example
 The command docker run ubuntu ps launches an Ubuntu container and executes the command ps to view all the processes running in a container.
 
-![alt text](8.PNG)
+![alt text](8.png)
 
 Using docker run -it ubuntu bash allows Jane to get access to a bash shell inside of a container.
 
-![alt text](9.PNG)
+![alt text](9.png)
 
 ## PART 2
 # Deploy Static HTML Website as Container
@@ -107,7 +107,7 @@ In this example, our base image is the Alpine version of Nginx. This provides th
 ## Task
 Create your Dockerfile for building your image by copying the contents below into the editor.
 
-![alt text](File2.PNG)
+![alt text](File2.png)
 
 The first line defines our base image. The second line copies the content of the current directory into a particular location inside the container.
 
@@ -119,12 +119,12 @@ The build command takes in some different parameters. The format is docker build
 ## Task
 Build our static HTML image using the build command below.
 
-![alt text](File3.PNG)
+![alt text](File3.png)
 
 You can view a list of all the images on the host using
 
-![alt text](File4.PNG)
-![alt text](terusan.PNG)
+![alt text](File4.png)
+![alt text](terusan.png)
 
 The built image will have the name webserver-image with a tag of v1.
 
@@ -136,11 +136,11 @@ For example, to open and bind to a network port on the host you need to provide 
 Task
 Launch our newly built image providing the friendly name and tag. As it's a web server, bind port 80 to our host using the -p parameter.
 
-![alt text](File5.PNG)
+![alt text](File5.png)
 
 Once started, you'll be able to access the results of port 80 via
 
-![alt text](File6.PNG)
+![alt text](File6.png)
 
 To render the requests in the browser use the following links
 
@@ -148,4 +148,4 @@ https://2886795266-80-ollie07.environments.katacoda.com/
 
 You now have a static HTML website being served by Nginx.
 
-![alt text](HELLOWORLD.PNG)
+![alt text](HELLOWORLD.png)
