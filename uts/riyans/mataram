@@ -1,0 +1,59 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Try the new cross-platform PowerShell https://aka.ms/pscore6
+
+PS C:\Users\User> mkdir riyans
+
+
+    Directory: C:\Users\User
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----       10/28/2019  11:58 PM                riyans
+
+
+PS C:\Users\User> cd riyans
+PS C:\Users\User\riyans> docker build -t riyans/riyans:v1 .
+Sending build context to Docker daemon  3.072kB
+Step 1/2 : FROM nginx:alpine
+ ---> b6753551581f
+Step 2/2 : COPY . /usr/share/nginx/html
+ ---> 75955f90dc0a
+Successfully built 75955f90dc0a
+Successfully tagged riyans/riyans:v1
+SECURITY WARNING: You are building a Docker image from Windows against a non-Windows Docker host. All files and directories added to build context will have '-rwxr-xr-x' permissions. It is recommended to double check and reset permissions for sensitive files and directories.
+PS C:\Users\User\riyans> docker images
+REPOSITORY                TAG                 IMAGE ID            CREATED             SIZE
+riyans/riyans             v1                  75955f90dc0a        42 seconds ago      21.4MB
+alditampan69/alditampan   v1                  ed56c8eb7188        19 minutes ago      21.4MB
+nocsas/sasongko           v1                  4db5dca15bcc        About an hour ago   21.4MB
+rizh/rizh                 v1                  e69d8f68ab90        2 hours ago         21.4MB
+rizh/rizh                 v2                  e69d8f68ab90        2 hours ago         21.4MB
+<none>                    <none>              8b84c436221e        2 hours ago         21.4MB
+lukmansl1994/galery-luk   v1                  e04900a87f1e        5 hours ago         27.4MB
+lukmansl1994/galery       v1                  e04900a87f1e        5 hours ago         27.4MB
+nginx                     alpine              b6753551581f        5 days ago          21.4MB
+cockroachdb/cockroach     latest              82ebb27f44e8        4 weeks ago         190MB
+ubuntu                    latest              2ca708c1c9cc        5 weeks ago         64.2MB
+PS C:\Users\User\riyans> docker run -d -p 5050:80 --name=mataram riyans/riyans:v1
+494cdf7be5c27bfda3a87c4d4aec6db6a0b0850219b36b2fb4d40c0273156b16
+PS C:\Users\User\riyans> docker ps
+CONTAINER ID        IMAGE                        COMMAND                  CREATED             STATUS              PORTS                  NAMES
+494cdf7be5c2        riyans/riyans:v1             "nginx -g 'daemon of…"   26 seconds ago      Up 24 seconds       0.0.0.0:5050->80/tcp   mataram
+bb979ff610c0        alditampan69/alditampan:v1   "nginx -g 'daemon of…"   18 minutes ago      Up 18 minutes       0.0.0.0:6060->80/tcp   alditampan69
+da00341b198a        nocsas/sasongko:v1           "nginx -g 'daemon of…"   57 minutes ago      Up 57 minutes       0.0.0.0:7070->80/tcp   nocsas
+4f7b772204f0        rizh/rizh:v2                 "nginx -g 'daemon of…"   2 hours ago         Up 2 hours          0.0.0.0:9099->80/tcp   rizh2
+0f12ddba6191        8b84c436221e                 "nginx -g 'daemon of…"   2 hours ago         Up 2 hours          0.0.0.0:9090->80/tcp   rizh
+ac40c8d468f3        lukmansl1994/galery-luk:v1   "nginx -g 'daemon of…"   5 hours ago         Up 5 hours          0.0.0.0:8080->80/tcp   galery
+PS C:\Users\User\riyans> docker tag riyans/riyans:v1 riyans/riyans:v1
+PS C:\Users\User\riyans> docker login docker.io
+Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
+Username: riyans
+Password:
+Login Succeeded
+PS C:\Users\User\riyans> docker push riyans/riyans:v1
+The push refers to repository [docker.io/riyans/riyans]
+984a80186e0f: Pushed                                                                                                    bba7d2385bc1: Mounted from alditampan69/alditampan                                                                      77cae8ab23bf: Mounted from alditampan69/alditampan                                                                      v1: digest: sha256:1c450f5ae48bc5f5b4ccee119e3a875e88bb7b314ae0d6a7ef51e11bb503577b size: 946
+PS C:\Users\User\riyans>
