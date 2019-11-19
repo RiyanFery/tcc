@@ -5,4 +5,4 @@
 
 
 # REFERENSI : 
-1. https://umanium.wordpress.com/2015/09/29/python-flask-tutorial-1-instalasi-dan-hello-world/
+1. https://pythonspot.com/flask-web-app-with-python/
